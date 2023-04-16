@@ -1,0 +1,146 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<section class="section_item flex-container color-3 hero-item">
+  <div class="news-item">
+    <div class="logo">
+      <img src="{{comic.get_logo}}" alt="">
+    </div>
+    <button class="btn btn-main">LEER AHORA</button>
+    <button class="btn btn-secondary">AGREGAR LISTA</button>
+    <button class="btn btn-secondary">COMPARTIR</button>
+    
+  </div>
+  <div class="fixed">{{comic.description}}</div>
+</section>
+
+
+<style lang="css">
+  .news-item {
+    display: inline-block;
+    min-height: 200px;
+    margin: 0;
+    position: absolute;
+    left:0;
+    bottom:10;
+    padding-left:50px;
+  }
+
+  .hero-item {
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/53819/divinity-ori-sin.jpg') #000;
+    background-size: cover;
+    background-repeat: no-repeat, repeat;
+    background-color: #a75f5f;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .fixed {
+    position: fixed;
+    bottom:0;
+    left: 0;
+    width: 65%;
+    padding-left:60px;
+    text-align: left;
+    color: #fff;
+    font-size: 23px;
+    background: rgb(1,1,14);
+    background: linear-gradient(22deg, rgba(1,1,14,1) 0%, rgba(70,67,103,0.6460784142758667) 78%, rgb(93, 93, 104) 100%); 
+  }
+
+  .section_item {
+    height: auto;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    z-index: 1;
+    position: relative;
+    left:0;
+    top:0;
+  }
+
+  .flex-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .flex-item {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+  }
+
+  .section_item p {
+    font-size: 18px;
+    font-size: 1rem;
+    color: #fff;
+    max-width: 700px;
+    line-height: 1.5;
+  }
+
+  .btn{
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    margin-left:.5rem;
+  }
+
+  .btn-main{
+    background-color: #fff;
+    color: black;
+    border: none;
+  }
+
+  .btn-secondary{
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .btn-main:hover{
+    background-color: #615b5b;
+  }
+  
+  .btn-secondary:hover{
+    background-color: #fff;
+    color: #000;
+  }
+
+
+</style>
+
+<script type="text/javascript">
+  const hero = document.querySelector('.hero-item')
+  const image = 'https://images.comicbooktreasury.com/wp-content/uploads/2021/01/Marvel-Civil-War-Reading-Order.jpg' //'{{comic.get_image}}'
+
+  hero.style.backgroundImage = `url(${image})`
+
+</script>
+
+{% endblock content %}

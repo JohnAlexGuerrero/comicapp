@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="https://w7.pngwing.com/pngs/841/26/png-transparent-superman-dc-comics-comic-book-logo-comic-comics-heroes-text-thumbnail.png" alt="" class="brand-logo">
+        <ul class="nav-links">
+            <li class="nav-items">
+                <a href="{% url 'home' %}">inicio</a>
+            </li>
+            <li class="nav-items">
+                <a href="">busqueda</a>
+            </li>
+            <li class="nav-items">
+                <a href="">mi lista</a>
+            </li>
+            <li class="nav-items">
+                <a href="">originales</a>
+            </li>
+            <li class="nav-items">
+                <a href="">peliculas</a>
+            </li>
+            <li class="nav-items">
+                <a href="">series</a>
+            </li>
+        </ul>
+    </div>
+
+    {% block carrusel %}{% endblock carrusel %}
+<!--     
+    {% block categories %}
+        <div class="comic-container">
+            <div class="comic-card">
+
+            </div>
+        </div>
+
+    {% endblock %} -->
+
+    {% block content %}
+        <h1 class="title">recommended for you</h1>
+
+        <div class="comic-list">
+            <div class="card-content">
+                {% for comic in comics  %}
+                    {% include 'thumbnail.html' with comic=comic %}
+                {% endfor %}
+            </div>
+        </div>
+        
+    {% endblock content %}
+    
+</body>
+
+</html>
